@@ -14,9 +14,8 @@ $(document).ready(function(){
                     maxPatternLength: 32,
                     minMatchCharLength: 1,
                     keys: [
-                      "title",
-                      "author.firstName",
-                      "author.lastName"
+                        "template_name",
+                        "template_id"
                     ]
                   };
                   var fuse = new Fuse(list, options);
@@ -25,7 +24,7 @@ $(document).ready(function(){
                     if(searchResult.length > 0){
                     $('#result').empty();
                     for(i =0; i < searchResult.length; i++){
-                        $('#result').append('<div class="res"><h3>'+ searchResult[i].title + '</h3><p>' + searchResult[i].author.firstName + ' '+ searchResult[i].author.lastName +'</p></div>')
+                        $('#result').append('<div class="res">    <div class="image-container"> <a href="'+searchResult[i].preview_url+'" target="_blank"><img class="thumbnail" src="'+searchResult[i].thumbnail_url+'"></a>  </div>   <div class="content-container"> <a href="'+searchResult[i].preview_url+'" target="_blank"><h2>'+ searchResult[i].template_name +'</h2></a>   </div>')
                     }
                 }
                 else{
